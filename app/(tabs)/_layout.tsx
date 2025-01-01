@@ -47,18 +47,18 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="account"
+        name="explore"
         options={{
-          title: "Account",
+          title: "Explore",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="cog" color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="account"
         options={{
-          title: "Explore",
+          title: "Account",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="cog" color={color} />
           ),

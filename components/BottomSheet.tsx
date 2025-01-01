@@ -3,7 +3,11 @@ import { View, Text, StyleSheet } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 
-export const DownloadPicture = () => {
+interface DownloadPictureProps {
+  onDragDown: () => void;
+}
+
+export function DownloadPicture({ onDragDown }: DownloadPictureProps) {
   // ref
   const bottomSheetRef = useRef<BottomSheet>(null);
 
@@ -15,19 +19,24 @@ export const DownloadPicture = () => {
   // renders
   return (
     <GestureHandlerRootView style={styles.container}>
-      <BottomSheet ref={bottomSheetRef} onChange={handleSheetChanges}>
+      <BottomSheet
+        snapPoints={["97%"]}
+        enablePanDownToClose={true}
+        ref={bottomSheetRef}
+        onClose={onDragDown}
+        handleIndicatorStyle={{ height: 0 }}
+      >
         <BottomSheetView style={styles.contentContainer}>
           <Text>Awesome 🎉</Text>
         </BottomSheetView>
       </BottomSheet>
     </GestureHandlerRootView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "grey",
   },
   contentContainer: {
     flex: 1,
