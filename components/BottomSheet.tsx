@@ -1,10 +1,11 @@
 import React, { useCallback, useMemo, useRef } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ViewStyle } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 
 interface DownloadPictureProps {
   onDragDown: () => void;
+  style?: ViewStyle;
 }
 
 export function DownloadPicture({ onDragDown }: DownloadPictureProps) {
